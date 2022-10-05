@@ -23,7 +23,7 @@ published: true
 https://qiita.com/yaju/items/e5818c99857883a59033
 
 インストールが完了したら、`Setup`から下図のような設定をしましょう。
-接続ポートの指定は任任で構いません。
+接続ポートの指定は任意で構いません。
 下図の例では、`COM1`と`COM2`、`COM11`と`COM12`が接続されています。
 
 ![altテキスト](/images/serial_com0com.png)
