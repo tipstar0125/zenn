@@ -279,6 +279,25 @@ pub fn vis() -> String {
 
 ![Document](/images/Line_roots.png)
 
+
+破線を表現する場合は、`stroke-dasharray`を設定する。
+
+```rust
+pub fn lin(x1: usize, y1: usize, x2: usize, y2: usize, color: &str) -> Line {
+    Line::new()
+        .set("x1", x1)
+        .set("y1", y1)
+        .set("x2", x2)
+        .set("y2", y2)
+        .set("stroke", color)
+        .set("stroke-width", 3)
+        .set("stroke-linecap", "round")
+        .set("stroke-dasharray", 5)
+}
+```
+
+![Document](/images/Line_roots_dash.png)
+
 # Text
 
 テキストを追加する場合は`Text`を使用する。使いやすいように座標・テキストを引数として関数にしておくとよい。
