@@ -298,6 +298,39 @@ pub fn lin(x1: usize, y1: usize, x2: usize, y2: usize, color: &str) -> Line {
 
 ![Document](/images/Line_roots_dash.png)
 
+矢印を使う場合は、`Line`で設定する前に、以下の定義を行っておく。
+
+```rust
+use svg::node::Text as TextContent;
+
+svg = svg.add(TextContent::new(
+    r#"<defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="3" refY="2" orient="auto">
+            <polygon points="0 0, 4 2, 0 4" fill="lightgray"/>
+        </marker>
+    </defs>"#,
+));
+```
+
+上記で定義した`id`を使って、以下のように設定する。
+
+```rust
+pub fn lin(x1: usize, y1: usize, x2: usize, y2: usize, color: &str) -> Line {
+    Line::new()
+        .set("x1", x1)
+        .set("y1", y1)
+        .set("x2", x2)
+        .set("y2", y2)
+        .set("stroke", color)
+        .set("stroke-width", 3)
+        .set("stroke-linecap", "round")
+        .set("stroke-linecap", "round")
+        .set("marker-end", "url(#arrowhead)")
+}
+```
+
+![Document](/images/Line_arrow.png)
+
 # Text
 
 テキストを追加する場合は`Text`を使用する。使いやすいように座標・テキストを引数として関数にしておくとよい。
